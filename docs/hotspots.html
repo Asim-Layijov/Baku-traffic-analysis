@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Hotspots — Baku Analytics</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
+        header { background: #2c3e50; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; }
+        nav a:hover, nav a.active { color: #3498db; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        iframe { width: 100%; height: 700px; border: none; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Baku Traffic Analytics</h2>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="hotspots.html" class="active">Traffic Hotspots</a>
+            <a href="weather.html">Weather & Rain Impact</a>
+            <a href="delays.html">Delays & Worst Days</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Interactive Traffic Hotspots Map & Bottlenecks</h2>
+            <p>Geospatial analysis of chronic traffic congestion areas and street segments across Baku.</p>
+            <!-- Встраиваем вашу готовую интерактивную карту -->
+            <iframe src="baku_hotspots_map.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>
