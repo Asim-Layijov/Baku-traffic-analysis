@@ -1,0 +1,75 @@
+:root{--ink:#1b2430;--muted:#566274;--paper:#f6f7f5;--white:#fff;--road:#23303f;--jam:#b2182b;--lane:#f2b705;--line:#d9dde2;--rain:#08519c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--rain)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--lane);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:68ch}
+
+nav{position:sticky;top:0;z-index:5;background:var(--road);border-bottom:4px solid var(--lane)}
+nav .wrap{display:flex;gap:24px;align-items:center;min-height:56px;overflow-x:auto;white-space:nowrap}
+nav b{color:#fff;margin-right:auto;font-size:16px}
+nav a{color:#d6dde6;text-decoration:none;font-size:15px;padding:4px 0}
+nav a:hover,nav a[aria-current]{color:#fff;text-decoration:underline;text-decoration-color:var(--lane);text-decoration-thickness:3px;text-underline-offset:8px}
+
+.hero,.pagehead{background:var(--road);color:#fff}
+.hero{padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.pagehead{padding:40px 0 44px}
+h1{font-size:clamp(32px,5vw,56px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px}
+.pagehead h1{font-size:clamp(28px,4vw,42px);margin-bottom:10px}
+.hero p,.pagehead p{color:#cdd6e0;margin:0 0 14px}
+.pagehead p{max-width:68ch;margin:0}
+.hero .by{color:#fff;font-weight:600;margin-top:22px}
+.hero figure{margin:0;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 0 0 6px var(--road),0 0 0 8px var(--lane)}
+.hero figcaption{padding:8px 12px;background:#fff;margin:0}
+
+.facts{background:var(--lane);color:#1b1500}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:22px 18px 22px 0}
+.fact+.fact{padding-left:20px;border-left:2px dashed rgba(27,21,0,.45)}
+.fact strong{display:block;font-size:clamp(26px,3.4vw,40px);line-height:1.1}
+.fact span{font-size:14px}
+
+section{padding:56px 0}
+section.alt{background:var(--white);border-block:1px solid var(--line)}
+h2{font-size:clamp(24px,3.2vw,34px);line-height:1.12;letter-spacing:-.015em;margin:0 0 12px}
+.lead{color:var(--muted);margin:0 0 26px}
+figure{margin:26px 0}
+figure img{border:1px solid var(--line);border-radius:4px;background:#fff}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px;max-width:75ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.takeaway{border-left:6px solid var(--jam);padding:2px 0 2px 18px;margin:26px 0;font-size:18px;max-width:68ch}
+.todo{background:#fff3a8;padding:1px 6px;border-radius:3px}
+
+.mapbox{position:relative;aspect-ratio:16/10;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#e9ecef}
+.mapbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 0}
+.btn{display:inline-block;padding:10px 18px;border-radius:4px;background:var(--road);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+.btn:hover{background:#000}
+.btn.ghost{background:transparent;color:var(--road);box-shadow:inset 0 0 0 2px var(--road)}
+.btn.ghost:hover{background:var(--road);color:#fff}
+
+.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.route{display:block;text-decoration:none;color:var(--ink);border-top:4px solid var(--road)}
+.route:hover{border-top-color:var(--jam)}
+.route img{border:1px solid var(--line);margin:12px 0}
+.route strong{font-size:20px;display:block}
+.route span{color:var(--muted);font-size:15px}
+
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600}
+details p,details ul{margin:10px 0 0;color:var(--muted)}
+footer{background:var(--road);color:#cdd6e0;padding:36px 0;font-size:15px}
+footer a{color:#fff}
+
+@media (max-width:820px){
+  .hero .wrap,.two,.routes{grid-template-columns:1fr}
+  .facts .wrap{grid-template-columns:1fr 1fr}
+  .fact:nth-child(3){border-left:0;padding-left:0}
+  .fact:nth-child(n+3){border-top:2px dashed rgba(27,21,0,.45)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

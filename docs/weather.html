@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Weather Impact — Baku Analytics</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
-        header { background: #2c3e50; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; }
-        nav a:hover, nav a.active { color: #3498db; }
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        iframe { width: 100%; height: 600px; border: none; border-radius: 6px; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weather and rain | Baku Traffic Analytics</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h2>Baku Traffic Analytics</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="hotspots.html">Traffic Hotspots</a>
-            <a href="weather.html" class="active">Weather & Rain Impact</a>
-            <a href="delays.html">Delays & Worst Days</a>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <div class="card">
-            <h2>Hourly Precipitation Impact on Traffic</h2>
-            <p>Analyzing how hourly rainfall profiles alter traffic speeds and increase congestion delay factors.</p>
-            <iframe src="rain_by_hour.html"></iframe>
-        </div>
-        <div class="card">
-            <h2>Dose-Response Traffic Model</h2>
-            <p>Quantitative modeling of congestion severity relative to rain intensity.</p>
-            <iframe src="rain_dose_response.html"></iframe>
-        </div>
+<nav aria-label="Main">
+  <div class="wrap">
+    <b>Baku Traffic Analytics</b>
+    <a href="index.html">Home</a>
+    <a href="hotspots.html">Hotspots</a>
+    <a href="weather.html" aria-current="page">Weather and rain</a>
+    <a href="delays.html">Delays and worst days</a>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <h1>What rain does to traffic</h1>
+    <p>Every hour of traffic data is matched with Open-Meteo precipitation, then rainy hours are compared with dry ones at the same time of day, weekday and month.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The result</h2>
+    <p class="lead narrow">Rain is split into light (0.1 to 1 mm per hour) and rainfall (1 mm per hour or more).</p>
+    <figure>
+      <img src="rain_dashboard.png" alt="Three charts: model estimate of rain effect, delay by rainfall amount, and extra delay by hour of day" width="1400" height="900">
+      <figcaption>Top: model estimate with 95% intervals. Bottom left: delay by rainfall amount. Bottom right: extra delay by hour of day.</figcaption>
+    </figure>
+    <p class="takeaway"><span class="todo">TODO: your result, for example “Rainfall of 1 mm/h or more adds X% to total delay (95% CI a to b).”</span></p>
+    <div class="btns">
+      <a class="btn ghost" href="rain_dose_response.html">Interactive: delay by rainfall</a>
+      <a class="btn ghost" href="rain_by_hour.html">Interactive: rain effect by hour</a>
     </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Dry and rainy hours side by side</h2>
+    <p class="lead narrow">Average jam records per hour of the day, without any adjustment.</p>
+    <figure>
+      <img src="rain_hourly_profile.png" alt="Line chart of average jam records by hour of day for dry and rainy hours" width="1000" height="600" loading="lazy">
+      <figcaption>This raw comparison can mix rain with the time of day. The model above removes that effect.</figcaption>
+    </figure>
+    <h2>How the model works</h2>
+    <p class="narrow" style="color:var(--muted)">For each hour I count jam records, total delay and average speed. A quasi-Poisson model with hour of day, weekday and month as controls estimates the change caused by rain. Standard errors are clustered by day. Rain comes from one point in central Baku.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p><strong style="color:#fff">Asim Layijov</strong>, junior data analyst, Baku. Data: Waze jams (Kaggle) and Open-Meteo.</p></div>
+</footer>
 </body>
 </html>

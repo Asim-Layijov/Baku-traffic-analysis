@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Traffic Hotspots — Baku Analytics</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
-        header { background: #2c3e50; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; }
-        nav a:hover, nav a.active { color: #3498db; }
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        iframe { width: 100%; height: 700px; border: none; border-radius: 6px; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Traffic hotspots | Baku Traffic Analytics</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h2>Baku Traffic Analytics</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="hotspots.html" class="active">Traffic Hotspots</a>
-            <a href="weather.html">Weather & Rain Impact</a>
-            <a href="delays.html">Delays & Worst Days</a>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <div class="card">
-            <h2>Interactive Traffic Hotspots Map & Bottlenecks</h2>
-            <p>Geospatial analysis of chronic traffic congestion areas and street segments across Baku.</p>
-            <!-- Встраиваем вашу готовую интерактивную карту -->
-            <iframe src="baku_hotspots_map.html"></iframe>
-        </div>
+<nav aria-label="Main">
+  <div class="wrap">
+    <b>Baku Traffic Analytics</b>
+    <a href="index.html">Home</a>
+    <a href="hotspots.html" aria-current="page">Hotspots</a>
+    <a href="weather.html">Weather and rain</a>
+    <a href="delays.html">Delays and worst days</a>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <h1>Where delay piles up</h1>
+    <p>Baku is cut into 500 m hexagons, and each one adds up the delay reported inside it from November 2024 to March 2026.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Interactive map</h2>
+    <p class="lead narrow">Switch between all day, the morning peak (07:00–10:59) and the evening peak (17:00–20:59). Click a cell to see its main street, delay and average speed.</p>
+    <div class="mapbox">
+      <iframe src="baku_hotspots_map.html" title="Interactive map of traffic hotspots in Baku" loading="lazy"></iframe>
     </div>
+    <div class="btns"><a class="btn ghost" href="baku_hotspots_map.html">Open the map full screen</a></div>
+    <p class="takeaway"><span class="todo">TODO: one sentence with your main finding, for example which area holds the darkest cells.</span></p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>The 15 worst cells</h2>
+    <p class="lead narrow">Colour shows when a cell is worst: mornings, evenings or all day.</p>
+    <figure>
+      <img src="hotspots_top15.png" alt="Bar chart of the 15 cells with the most delay, coloured by morning, evening or all-day pattern" width="1100" height="700" loading="lazy">
+      <figcaption>Total reported delay per cell, in hours, for the whole period.</figcaption>
+    </figure>
+    <p class="takeaway"><span class="todo">TODO: how many of the 15 are all-day and how many are rush-hour only.</span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p><strong style="color:#fff">Asim Layijov</strong>, junior data analyst, Baku. Data: Waze jams (Kaggle) and Open-Meteo.</p></div>
+</footer>
 </body>
 </html>

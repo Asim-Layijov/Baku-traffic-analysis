@@ -1,0 +1,42 @@
+:root{--bg:#0f1923;--panel:#16212e;--line:#2b3a4d;--ink:#e6edf3;--muted:#9fb0c3;--lane:#f2b705;--jam:#ef4444}
+body{background:var(--bg);color:var(--ink)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='720' viewBox='0 0 720 720'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-20 150 C 180 80 320 260 740 170' stroke='%23152333' stroke-width='26'/%3E%3Cpath d='M-20 150 C 180 80 320 260 740 170' stroke='%231f3249' stroke-width='2' stroke-dasharray='16 14'/%3E%3Cpath d='M150 -20 C 90 220 290 420 220 740' stroke='%23152333' stroke-width='22'/%3E%3Cpath d='M150 -20 C 90 220 290 420 220 740' stroke='%231f3249' stroke-width='2' stroke-dasharray='14 14'/%3E%3Cpath d='M-20 520 C 200 470 420 600 740 500' stroke='%23152333' stroke-width='20'/%3E%3Cpath d='M-20 520 C 200 470 420 600 740 500' stroke='%231f3249' stroke-width='2' stroke-dasharray='12 12'/%3E%3Cpath d='M520 -20 C 560 200 470 380 560 740' stroke='%23152333' stroke-width='18'/%3E%3C/g%3E%3Ccircle cx='300' cy='200' r='70' fill='%23ef4444' fill-opacity='.05'/%3E%3Ccircle cx='230' cy='500' r='60' fill='%23f2b705' fill-opacity='.04'/%3E%3Ccircle cx='540' cy='360' r='50' fill='%23ef4444' fill-opacity='.045'/%3E%3C/svg%3E");background-size:720px 720px}
+#quarto-content,.page-columns,.content{background:transparent}
+a{color:#7fb8ff}
+h2{margin-top:2.8rem;padding-bottom:.35rem;border-bottom:1px solid var(--line);color:#fff}
+h2::before{content:"";display:inline-block;width:10px;height:1.1em;background:var(--lane);margin-right:12px;vertical-align:-.15em;border-radius:2px}
+#title-block-header{position:relative;background:linear-gradient(135deg,rgba(27,42,59,.92),rgba(11,20,32,.92));padding:34px 30px 40px;margin-bottom:28px;border-radius:6px}
+#title-block-header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:repeating-linear-gradient(90deg,#f2b705 0 30px,transparent 30px 50px)}
+#title-block-header .title{color:#fff;letter-spacing:-.02em}
+#title-block-header .subtitle,#title-block-header .quarto-title-meta{color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:10px 0 26px}
+.kpi{background:rgba(22,33,46,.94);border:1px solid var(--line);border-top:4px solid var(--lane);border-radius:6px;padding:16px 18px;color:var(--muted);font-size:.9rem}
+.kpi strong{display:block;color:#fff;font-size:1.9rem;line-height:1.15}
+.sidebar nav[role=doc-toc] a{color:var(--muted)}
+.sidebar nav[role=doc-toc] a.active{color:var(--lane)}
+.leaflet-container,.plotly,.dataTables_wrapper{border-radius:6px}
+.leaflet-container{border:1px solid var(--line)}
+.panel-tabset .nav-tabs{border-bottom:1px solid var(--line)}
+.panel-tabset .nav-tabs .nav-link{color:var(--muted);background:transparent;border:1px solid transparent}
+.panel-tabset .nav-tabs .nav-link:hover{color:#fff}
+.panel-tabset .nav-tabs .nav-link.active{color:#fff;background:var(--panel);border-color:var(--line) var(--line) var(--lane)}
+.panel-tabset .tab-content,.tab-content>.tab-pane{border:0;background:transparent}
+.dataTables_wrapper,.dataTables_wrapper label,.dataTables_info,.paginate_button{color:var(--ink)!important}
+table.dataTable,table.dataTable tbody tr,table.dataTable tbody td{background-color:transparent!important;color:var(--ink)!important;border-color:var(--line)!important}
+table.dataTable thead th{color:#fff!important;border-bottom:2px solid var(--lane)!important}
+table.dataTable tbody tr:hover td{background:#1d2c3f!important}
+.dataTables_wrapper input,.dataTables_wrapper select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:4px}
+.crosstalk-input label,.control-label{color:var(--muted)}
+.crosstalk-input .selectize-input,.crosstalk-input .selectize-dropdown{background:var(--panel);color:var(--ink);border-color:var(--line)}
+.note{color:var(--muted);font-size:.95rem}
+@media (max-width:760px){.kpis{grid-template-columns:1fr 1fr}}
+.notebox{background:rgba(22,33,46,.94);border:1px solid var(--line);border-left:4px solid var(--lane);border-radius:6px;padding:14px 18px;margin:0 0 24px;color:var(--muted);font-size:.95rem}
+.notebox strong{color:#fff}
+ 
+/* Автор в правом верхнем углу вместо кнопки Code */
+.code-tools-button,.quarto-alternate-formats{display:none!important}
+#title-block-header .quarto-title-meta{position:absolute;top:30px;right:30px;margin:0;text-align:right}
+#title-block-header .quarto-title-meta-heading{color:var(--lane)}
+#title-block-header .quarto-title-meta-contents p{color:#fff;font-weight:600;margin:0}
+@media (max-width:760px){#title-block-header .quarto-title-meta{position:static;text-align:left;margin-top:12px}}
+.js-plotly-plot,.plot-container,.svg-container{background:transparent!important}

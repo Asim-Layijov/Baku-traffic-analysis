@@ -1,37 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Delays & Worst Days — Baku Analytics</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
-        header { background: #2c3e50; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; }
-        nav a:hover, nav a.active { color: #3498db; }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        img { width: 100%; height: auto; border-radius: 6px; margin-top: 15px; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delays and worst days | Baku Traffic Analytics</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h2>Baku Traffic Analytics</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="hotspots.html">Traffic Hotspots</a>
-            <a href="weather.html">Weather & Rain Impact</a>
-            <a href="delays.html" class="active">Delays & Worst Days</a>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <div class="card">
-            <h2>Extreme Congestion & Worst Traffic Days</h2>
-            <p>Analysis of historical extreme delays, holidays, and peak load anomalies recorded in Baku datasets.</p>
-            <!-- Сюда можно вывести ваши сохраненные PNG графики из RStudio -->
-            <img src="worst_days.png" alt="Worst Days Analysis">
-            <img src="worst_days_calendar.png" alt="Worst Days Calendar Heatmap">
-        </div>
+<nav aria-label="Main">
+  <div class="wrap">
+    <b>Baku Traffic Analytics</b>
+    <a href="index.html">Home</a>
+    <a href="hotspots.html">Hotspots</a>
+    <a href="weather.html">Weather and rain</a>
+    <a href="delays.html" aria-current="page">Delays and worst days</a>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <h1>Which roads and days are worst</h1>
+    <p>First the road segments that spend the most time in a jam, then the ten days that were worst compared with a typical day.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Road segments that are always slow</h2>
+    <p class="lead narrow">Almost every main road is jammed at least once a day, so counting jam days does not separate them. I ranked segments by the minutes they spend in a jam instead.</p>
+    <div class="two">
+      <figure>
+        <img src="jam_minutes_by_segment.png" alt="Bar chart of road segments by average minutes in a jam per day" width="1000" height="700" loading="lazy">
+        <figcaption>Segments with the most time in a jam, averaged per day.</figcaption>
+      </figure>
+      <figure>
+        <img src="jam_hourly_profile.png" alt="Heat map of jam minutes by hour of day for the ten worst segments" width="1100" height="600" loading="lazy">
+        <figcaption>The same segments by hour of day: morning, evening or all-day jams.</figcaption>
+      </figure>
     </div>
+    <p class="takeaway"><span class="todo">TODO: how many segments are jammed all day and which street appears most often.</span></p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>The ten worst days</h2>
+    <p class="lead narrow">Each day is compared with a typical day of the same weekday and month, then checked against holidays, big events and rain.</p>
+    <figure>
+      <img src="worst_days_top10.png" alt="Chart of the ten worst traffic days with the likely factor for each" width="1100" height="750" loading="lazy">
+      <figcaption>Days with the largest excess delay and what coincided with them.</figcaption>
+    </figure>
+    <div class="two">
+      <figure>
+        <img src="worst_days_calendar.png" alt="Calendar heat map of daily delay compared with a typical day" width="1400" height="800" loading="lazy">
+        <figcaption>Every day in the dataset. Red is worse than typical, blue is better.</figcaption>
+      </figure>
+      <figure>
+        <img src="worst_days_factors.png" alt="Bar chart comparing the share of all days and of the 30 worst days by likely factor" width="1000" height="550" loading="lazy">
+        <figcaption>A factor far more common among the worst days than among all days matters.</figcaption>
+      </figure>
+    </div>
+    <p class="takeaway"><span class="todo">TODO: your finding, and a note on the early November 2024 days if you checked or excluded them.</span></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p><strong style="color:#fff">Asim Layijov</strong>, junior data analyst, Baku. Data: Waze jams (Kaggle) and Open-Meteo.</p></div>
+</footer>
 </body>
 </html>

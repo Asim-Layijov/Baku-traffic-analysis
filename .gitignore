@@ -5,3 +5,9 @@
 
 /.quarto/
 **/*.quarto_ipynb
+
+.quarto/
+.Rproj.user/
+.Rhistory
+.RData
+*.csv
